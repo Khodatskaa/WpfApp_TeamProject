@@ -15,4 +15,8 @@
     <PackageReference Include="MaterialDesignThemes.Wpf" Version="1.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\WPF_CORE\WPF_CORE.csproj" />
+  </ItemGroup>
+
 </Project>
