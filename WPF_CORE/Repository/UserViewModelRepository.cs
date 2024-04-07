@@ -16,7 +16,7 @@ namespace WPF_CORE.Repository
             core = new UseCase.Core();
         }
 
-        public List<User> GetUsers()
+        public List<Core> GetUsers()
         {
             return core.GetUsers();
         }

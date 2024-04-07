@@ -12,18 +12,18 @@ namespace WPF_CORE.UseCase
     {
         private readonly Core core;
 
-        public ObservableCollection<User> Users { get; set; }    // ObservableCollection is used to update the UI automatically
+        public ObservableCollection<Models.Core> Users { get; set; }    // ObservableCollection is used to update the UI automatically
 
         public UserViewModel()
         {
             core = new Core();
-            Users = new ObservableCollection<User>(core.GetUsers());
+            Users = new ObservableCollection<Models.Core>(core.GetUsers());
         }
 
         public void RefreshData()
         {
             Users.Clear();
-            List<User> users = core.GetUsers();
+            List<Models.Core> users = core.GetUsers();
             foreach (var user in users)
             {
                 Users.Add(user);
@@ -50,7 +50,7 @@ namespace WPF_CORE.UseCase
 
         public void SortByPoints()
         {
-            List<User> sortedUsers = Users.OrderByDescending(u => u.Points).ToList();    // (u => u.Points) - is used to sort by Points
+            List<Models.Core> sortedUsers = Users.OrderByDescending(u => u.Points).ToList();    // (u => u.Points) - is used to sort by Points
             Users.Clear();
             foreach (var user in sortedUsers)
             {
@@ -60,7 +60,7 @@ namespace WPF_CORE.UseCase
 
         public void SortByAge()
         {
-            List<User> sortedUsers = Users.OrderBy(u => u.Age).ToList();                  // (u => u.Age) - is used to sort by Age
+            List<Models.Core> sortedUsers = Users.OrderBy(u => u.Age).ToList();                  // (u => u.Age) - is used to sort by Age
             Users.Clear();
             foreach (var user in sortedUsers)
             {
@@ -70,7 +70,7 @@ namespace WPF_CORE.UseCase
 
         public void SortByName()
         {
-            List<User> sortedUsers = Users.OrderBy(u => u.FirstName).ToList();           // (u => u.FirstName) - is used to sort by FirstName
+            List<Models.Core> sortedUsers = Users.OrderBy(u => u.FirstName).ToList();           // (u => u.FirstName) - is used to sort by FirstName
             Users.Clear();
             foreach (var user in sortedUsers)
             {
@@ -81,14 +81,14 @@ namespace WPF_CORE.UseCase
 
     internal class Core
     {
-        public List<User> GetUsers()
+        public List<Models.Core> GetUsers()
         {
-            return new List<User>
+            return new List<Models.Core>
         {
-            new User { Id = 1, FirstName = "John", LastName = "Doe", Age = 25, Points = 100 },
-            new User { Id = 2, FirstName = "Jane", LastName = "Doe", Age = 30, Points = 200 },
-            new User { Id = 3, FirstName = "Alice", LastName = "Smith", Age = 35, Points = 300 },
-            new User { Id = 4, FirstName = "Bob", LastName = "Smith", Age = 40, Points = 400 }
+            new Models.Core { Id = 1, FirstName = "John", LastName = "Doe", Age = 25, Points = 100 },
+            new Models.Core { Id = 2, FirstName = "Jane", LastName = "Doe", Age = 30, Points = 200 },
+            new Models.Core { Id = 3, FirstName = "Alice", LastName = "Smith", Age = 35, Points = 300 },
+            new Models.Core { Id = 4, FirstName = "Bob", LastName = "Smith", Age = 40, Points = 400 }
         };
         }
 
