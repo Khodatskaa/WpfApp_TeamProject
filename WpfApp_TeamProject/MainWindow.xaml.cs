@@ -1,5 +1,4 @@
-﻿using System.Text;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -14,7 +13,7 @@ namespace WpfApp_TeamProject
 {
     public partial class MainWindow : Window
     {
-        private Core core;
+        private  Core core;
 
         public MainWindow()
         {
